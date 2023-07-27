@@ -171,6 +171,12 @@ Creating root_spark-worker-a_1 ... done
 Verify all the running container, so please run the following command:
 
 ```bash
+$ docker ps
+```
+
+You should see the following output:
+
+```bash
 CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS              PORTS                                                                                  NAMES
 a29b1cf3062f   bitnami/spark:3.3      "/opt/bitnami/script…"   About a minute ago   Up About a minute   0.0.0.0:7000->7000/tcp, :::7000->7000/tcp, 0.0.0.0:9091->8080/tcp, :::9091->8080/tcp   root_spark-worker-a_1
 8d5e6efb9c44   bitnami/spark:3.3      "/opt/bitnami/script…"   About a minute ago   Up About a minute   0.0.0.0:7001->7000/tcp, :::7001->7000/tcp, 0.0.0.0:9092->8080/tcp, :::9092->8080/tcp   root_spark-worker-b_1
@@ -179,6 +185,13 @@ ebf78d5fed73   postgres:11.7-alpine   "docker-entrypoint.s…"   About a minute 
 ```
 
 And to verify the downloaded images, run the following command:
+
+```bash
+$ docker images
+```
+
+You should see the following output:
+
 
 ```bash
 REPOSITORY             TAG                       IMAGE ID       CREATED         SIZE
