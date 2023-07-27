@@ -44,6 +44,9 @@ Before starting, it is always a good idea to update all system packages to the u
 `apt update -y`
 `apt upgrade -y`
 
+After updating all system packages, run the following command to install other required dependencies:
+```apt install apt-transport-https ca-certificates curl software-properties-common -y```
+
 ### 2. Set Up the Project Directory
 
 Create a new directory for your PySpark project. Inside the project directory, create the following files:
