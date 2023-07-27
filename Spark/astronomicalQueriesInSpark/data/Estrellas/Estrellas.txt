@@ -1,0 +1,216 @@
+491	2896	Gigantes
+824	3592	Supergigantes
+978	2154	Supergigantes
+179	2598	Supergigantes
+878	1525	Supergigantes
+592	462	Enanas blancas
+343	3870	Hipergigantes
+174	598	Gigantes
+363	2783	Enanas
+651	1326	Gigantes
+891	336	Gigantes
+218	4928	Hipergigantes
+471	4282	Supergigantes
+754	3990	Enanas
+413	4074	Enanas blancas
+948	3929	Supergigantes
+896	2298	Supergigantes
+330	3643	Enanas blancas
+163	1583	Enanas
+965	2306	Hipergigantes
+791	1639	Hipergigantes
+480	1443	Enanas
+260	3299	Supergigantes
+119	609	Supergigantes
+427	2948	Gigantes
+683	3809	Supergigantes
+227	2077	Enanas blancas
+267	3777	Gigantes
+463	2794	Supergigantes
+150	268	Enanas blancas
+692	2532	Supergigantes
+151	4807	Enanas
+278	4666	Enanas
+282	3434	Hipergigantes
+957	3874	Supergigantes
+145	4528	Hipergigantes
+819	2413	Enanas
+154	3693	Hipergigantes
+394	2636	Enanas
+364	93	Enanas blancas
+111	546	Enanas blancas
+650	2151	Enanas blancas
+840	1373	Enanas blancas
+510	2035	Gigantes
+777	4736	Enanas blancas
+644	1550	Gigantes
+469	1570	Enanas blancas
+199	1669	Enanas
+110	2682	Enanas blancas
+352	3812	Enanas
+900	4583	Gigantes
+797	830	Enanas
+524	1540	Supergigantes
+723	1549	Enanas blancas
+515	1575	Hipergigantes
+726	1892	Enanas blancas
+317	3734	Supergigantes
+593	4465	Enanas blancas
+73	4580	Enanas blancas
+34	2673	Gigantes
+849	2455	Enanas
+194	3039	Enanas
+915	4905	Enanas blancas
+147	630	Hipergigantes
+636	3723	Hipergigantes
+20	3439	Hipergigantes
+499	1950	Hipergigantes
+977	165	Hipergigantes
+220	1537	Hipergigantes
+213	3602	Supergigantes
+803	2420	Enanas blancas
+453	4379	Gigantes
+117	1595	Enanas blancas
+588	4063	Supergigantes
+9	839	Enanas blancas
+221	4779	Hipergigantes
+703	283	Supergigantes
+758	2707	Hipergigantes
+737	4357	Enanas
+501	4879	Supergigantes
+467	3515	Supergigantes
+538	1740	Enanas blancas
+233	927	Gigantes
+187	4507	Supergigantes
+315	4546	Enanas
+764	4836	Gigantes
+398	15	Supergigantes
+876	2554	Enanas blancas
+22	238	Gigantes
+630	3579	Hipergigantes
+365	3120	Supergigantes
+410	602	Hipergigantes
+133	2386	Gigantes
+982	4934	Enanas blancas
+285	2575	Hipergigantes
+861	2224	Enanas blancas
+572	4873	Gigantes
+598	515	Gigantes
+950	2958	Hipergigantes
+601	2561	Supergigantes
+701	3002	Enanas
+865	4129	Supergigantes
+27	4528	Enanas blancas
+470	3127	Enanas
+46	2074	Hipergigantes
+582	2977	Gigantes
+514	812	Enanas blancas
+312	310	Enanas blancas
+97	3834	Enanas
+373	2288	Enanas
+920	2700	Gigantes
+526	1406	Supergigantes
+304	2083	Enanas blancas
+879	4165	Enanas
+843	505	Supergigantes
+417	2743	Enanas blancas
+959	1850	Gigantes
+197	437	Supergigantes
+700	1946	Enanas
+730	3819	Hipergigantes
+757	3289	Enanas
+262	2752	Hipergigantes
+531	2635	Hipergigantes
+631	1394	Hipergigantes
+307	3168	Supergigantes
+62	2343	Gigantes
+393	3435	Supergigantes
+834	2058	Hipergigantes
+539	3607	Enanas
+618	4103	Gigantes
+850	2872	Enanas blancas
+633	606	Hipergigantes
+87	2910	Enanas
+264	4443	Hipergigantes
+557	1649	Hipergigantes
+817	4449	Enanas
+21	3177	Gigantes
+579	1686	Hipergigantes
+842	4614	Supergigantes
+360	3645	Gigantes
+638	4553	Enanas blancas
+242	3908	Enanas blancas
+529	3386	Enanas
+152	4866	Gigantes
+412	642	Enanas blancas
+196	1400	Hipergigantes
+997	3578	Gigantes
+1000	2971	Hipergigantes
+971	1352	Supergigantes
+576	3948	Hipergigantes
+929	3649	Gigantes
+721	3159	Gigantes
+316	1565	Enanas
+386	1456	Supergigantes
+939	4340	Enanas blancas
+35	841	Supergigantes
+279	3220	Enanas blancas
+162	1826	Hipergigantes
+996	3168	Supergigantes
+521	1356	Enanas
+465	4755	Gigantes
+318	1125	Supergigantes
+36	3448	Enanas
+818	4408	Gigantes
+540	3048	Enanas
+622	298	Enanas blancas
+525	4686	Hipergigantes
+29	1490	Hipergigantes
+559	3825	Supergigantes
+838	3621	Gigantes
+666	3974	Hipergigantes
+40	4603	Supergigantes
+327	3130	Enanas blancas
+420	7	Enanas
+715	2293	Enanas blancas
+680	3154	Enanas blancas
+591	1897	Enanas
+596	4987	Supergigantes
+407	2194	Enanas blancas
+746	3805	Enanas
+882	974	Gigantes
+494	800	Hipergigantes
+925	2491	Enanas blancas
+83	1470	Enanas
+81	531	Gigantes
+627	1581	Gigantes
+381	4390	Hipergigantes
+613	1259	Supergigantes
+424	357	Enanas blancas
+712	3138	Enanas
+689	2919	Gigantes
+181	2700	Gigantes
+509	1080	Supergigantes
+679	3759	Hipergigantes
+66	2520	Hipergigantes
+137	2544	Gigantes
+395	3927	Hipergigantes
+814	1795	Gigantes
+323	1349	Gigantes
+624	373	Hipergigantes
+287	1088	Gigantes
+206	1997	Enanas blancas
+569	4492	Enanas
+126	560	Hipergigantes
+545	3542	Hipergigantes
+2	2717	Enanas blancas
+257	1417	Enanas
+909	1561	Gigantes
+357	4361	Supergigantes
+983	4297	Supergigantes
+867	4466	Hipergigantes
+209	1933	Enanas
+259	4301	Hipergigantes
+376	2867	Enanas blancas
+328	1335	Enanas blancas
+23	1373	Enanas blancas
