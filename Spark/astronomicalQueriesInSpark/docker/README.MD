@@ -10,9 +10,8 @@ This tutorial will guide you through the steps to set up PySpark with Docker Com
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Prerequisites](#prerequisites)
-  - [Step 1: Install Dependencies](#step-1-install-dependencies)
-  - [Step 2: Start the PySpark Container](#step-2-start-the-pyspark-container)
-  - [Conclusion](#conclusion)
+    - [Step 1: Install Dependencies](#step-1-install-dependencies)
+    - [Step 2: Start the PySpark Container](#step-2-start-the-pyspark-container)
   - [Additional Resources](#additional-resources)
 
 ## Introduction
@@ -189,7 +188,7 @@ openjdk                11.0.11-jre-slim-buster   f1d5c8a9bc51   17 months ago   
 postgres               11.7-alpine               36ff18d21807   2 years ago     150MB
 ```
 
-### 3. Run Your PySpark Application
+### 3. Access Apache Spark
 
 At this point, Apache spark is installed and running. Now, open your web browser and access the Apache Spark master using the URL http://your-server-ip:9090. You should see the Apache Spark master on the following screen:
 
