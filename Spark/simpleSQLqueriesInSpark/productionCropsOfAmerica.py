@@ -22,7 +22,7 @@ os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
 !echo 2 | update-alternatives --config java
 !java -version    #check java version
 
-root_path = 'drive/My Drive/Colab Notebooks/SQL_Test_DBD/'
+root_path = 'drive/My Drive/Colab Notebooks/Conceptos\ y\ Aplicaciones\ de\ Big\ Data/SQL_Test_DBD/'
 
 from google.colab import drive
 drive.mount('/content/drive', force_remount = True)
