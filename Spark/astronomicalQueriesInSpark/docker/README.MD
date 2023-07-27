@@ -196,7 +196,9 @@ At this point, Apache spark is installed and running. Now, open your web browser
 
 If you have any problem to access any of the node. You can check the container logs using the following command:
 
-docker-compose logs
+```bash
+$ docker-compose logs
+```
 
 You should see the following output:
 
