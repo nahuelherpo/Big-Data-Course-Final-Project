@@ -16,15 +16,11 @@ Original file is located at
 
 """# Imports"""
 
-ROOT_PATH = 'datasets/'
+ROOT_PATH = '/opt/spark-data/'
 
 import math                           # math functions
 from pyspark import SparkContext      # spark context
 from pyspark.sql import SparkSession  # spark session
-from pyspark import StorageLevel      # persistence
-from pyspark.sql import SQLContext, Row, functions as F, Window
-from pyspark.sql.functions import udf, when, lit, count, col, array
-from pyspark.sql.types import BooleanType, StringType, StructType, StructField, IntegerType, FloatType, LongType
 
 
 """# Spark Setup"""
@@ -33,11 +29,7 @@ from pyspark.sql.types import BooleanType, StringType, StructType, StructField, 
 sc = SparkContext('local', 'test')
 
 # Create Spark Session
-
 sparkSession = SparkSession.builder.appName('test').getOrCreate()
-
-# Create SQL Context
-sqlContext = SQLContext(sc)
 
 
 """# Query 1
@@ -129,7 +121,8 @@ observacionesConTipo = sc.textFile(ROOT_PATH + 'Observaciones/') \
       (0, 0),
       (lambda result, original: (result[0] + original, result[1] + 1)),
       (lambda r1, r2: (r1[0] + r2[0], r1[1] + r2[1]))).mapValues(lambda t: t[0] / t[1])
-observacionesConTipo.saveAsTextFile(ROOT_PATH + 'Output_Consulta1/')
+
+observacionesConTipo.saveAsTextFile(ROOT_PATH + 'output/query1')
 
 
 """# Query 2
@@ -230,5 +223,5 @@ max = max_observers.aggregate(
 
 max_observers = max_observers.filter(lambda t: t[2] == max).map(lambda t: (t[0], t[1]))
 
-max_observers.saveAsTextFile(ROOT_PATH + 'Output_Consulta2/')
+max_observers.saveAsTextFile(ROOT_PATH + 'output/query2')
 
