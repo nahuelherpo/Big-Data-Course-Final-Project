@@ -32,7 +32,7 @@ from Emulador_MapReduce import Job
 sys.setrecursionlimit(10000)
 
 
-"""**Funciones anexas**"""
+"""**Attached functions**"""
 
 def typeNumber(star):
   """
@@ -100,92 +100,96 @@ def calcDistInPC(min_mag, max_mag, abs_mag):
   # Formula with D cleared (the base of the logarithm is 10.)
   return (10 ** ((magnitud_mean - abs_mag + 5) / 5))
 
+def main():
+
+  """**Job 1 Filter**"""
+
+  #  JOB 1 -->> Filtra por el tipo de estrella.
+
+  def map1Filter(k1, v1, context):    # k1 = id_estrella  v1 = edad, tipo
+    tipo = typeNumber(v1.split('\t')[1])
+    if tipo == context['tipoDeEstrellas']: # Si la observacion es de una estrella de tipo ENANA entonces escribo la tupla
+      context.write(int(k1), tipo)
+
+  def reduce1(k2, v2, context):   # k2 = id_estrella  v2 = tipo
+      context.write(k2, v2.next())
+
+  # Outout:   id_estrella, tipo
 
 
-"""**Job 1 Filter**"""
+  """**Job 2 Join**"""
 
-#  JOB 1 -->> Filtra por el tipo de estrella.
+  #  JOB 2 -->> Realiza un join y calcula el promedio por estrella.
 
-def map1Filter(k1, v1, context):    # k1 = id_estrella  v1 = edad, tipo
-  tipo = typeNumber(v1.split('\t')[1])
-  if tipo == context['tipoDeEstrellas']: # Si la observacion es de una estrella de tipo ENANA entonces escribo la tupla
-    context.write(int(k1), tipo)
+  def map2_Obs(k1, v1, context):  # k1 = id_estrella  v1 = nombre, dni, mag_min, mag_max, periodo, fechaObs.
+    values = v1.split('\t')
+    distance = calcDistInPC(float(values[2]), float(values[3]), calcAbsMag(float(values[4])))
+    context.write((int(k1), 'OBS'), ('OBS', distance, 1))
 
-def reduce1(k2, v2, context):   # k2 = id_estrella  v2 = tipo
-    context.write(k2, v2.next())
+  def map2_Est(k1, v1, context):  # k1 = id_estrella  v1 = tipo.
+    context.write((int(k1), 'EST'), ('TIP', v1))
 
-# Outout:   id_estrella, tipo
-
-"""**Job 2 Join**"""
-
-#  JOB 2 -->> Realiza un join y calcula el promedio por estrella.
-
-def map2_Obs(k1, v1, context):  # k1 = id_estrella  v1 = nombre, dni, mag_min, mag_max, periodo, fechaObs.
-  values = v1.split('\t')
-  distance = calcDistInPC(float(values[2]), float(values[3]), calcAbsMag(float(values[4])))
-  context.write((int(k1), 'OBS'), ('OBS', distance, 1))
-
-def map2_Est(k1, v1, context):  # k1 = id_estrella  v1 = tipo.
-  context.write((int(k1), 'EST'), ('TIP', v1))
-
-def combiner2(k2, v2, context):  # k2 = (id_estrella, 'EST' | 'OBS')  v2 = (('EST', tipo) | ('OBS', distancia, 1))
-  count = 0
-  distance_sum = 0.0
-  for v in v2:
-    if v[0] == 'OBS':
-      count += v[2]
-      distance_sum += v[1]
-    elif v[0] == 'TIP':
-      context.write(k2, v2)
-  if count != 0:  # Si por lo menos hay una observacion
-    context.write(k2, ('OBS', distance_sum, count))
-
-def reduce2(k2, v2, context):  # k2 = (id_estrella, 'EST' | 'OBS')  v2 = (('EST', tipo) | ('OBS', distancia, 1))
-  count = 0
-  distance_sum = 0.0
-  first = v2.next()
-  if first[0] == 'TIP':
+  def combiner2(k2, v2, context):  # k2 = (id_estrella, 'EST' | 'OBS')  v2 = (('EST', tipo) | ('OBS', distancia, 1))
+    count = 0
+    distance_sum = 0.0
     for v in v2:
-      count += v[2]
-      distance_sum += v[1]
-    if count != 0: # Si por lo menos hay una observacion
-      context.write(k2[0], distance_sum / count)
+      if v[0] == 'OBS':
+        count += v[2]
+        distance_sum += v[1]
+      elif v[0] == 'TIP':
+        context.write(k2, v2)
+    if count != 0:  # Si por lo menos hay una observacion
+      context.write(k2, ('OBS', distance_sum, count))
 
-def shuffle2(key1, key2):
-  if key1[0] == key2[0]:
-    return 0
-  elif key1[0] < key2[0]:
-    return -1
-  else:
-    return 1
+  def reduce2(k2, v2, context):  # k2 = (id_estrella, 'EST' | 'OBS')  v2 = (('EST', tipo) | ('OBS', distancia, 1))
+    count = 0
+    distance_sum = 0.0
+    first = v2.next()
+    if first[0] == 'TIP':
+      for v in v2:
+        count += v[2]
+        distance_sum += v[1]
+      if count != 0: # Si por lo menos hay una observacion
+        context.write(k2[0], distance_sum / count)
 
-def sort2(key1, key2):
-  if key1[1] == key2[1]:
-    return 0
-  elif key1[1] == 'EST':
-    return -1
-  else:
-    return 1
+  def shuffle2(key1, key2):
+    if key1[0] == key2[0]:
+      return 0
+    elif key1[0] < key2[0]:
+      return -1
+    else:
+      return 1
 
-# Output:   id_estrella, prom_distancia
+  def sort2(key1, key2):
+    if key1[1] == key2[1]:
+      return 0
+    elif key1[1] == 'EST':
+      return -1
+    else:
+      return 1
 
-"""**Consulta 1:**"""
+  # Output:   id_estrella, prom_distancia
 
-#JOB_1 - Filter
-inputDirectory1 = root_path + '/TP1_TP2/Dataset_Estrellas/'
-outputDirectory1 = root_path + '/TP1_TP2/Output/Job1_Filter/'
-#Job1 On
-job1 = Job(inputDirectory1, outputDirectory1, map1Filter, reduce1)
-dictionary = { 'tipoDeEstrellas': 0 } # 0 = Tipo de estrella ENANA.
-job1.setParams(dictionary)
-print(job1.waitForCompletion())
+  """**Consulta 1:**"""
 
-#JOB_2 - Join
-inputDirectory2 = outputDirectory1
-outputDirectory2 = root_path + '/TP1_TP2/Output/Job2_Join/'
-#Job2 On
-job2 = Job(inputDirectory2, outputDirectory2, map2_Est, reduce2)
-job2.addInputPath(root_path + '/TP1_TP2/Dataset_Observaciones/', map2_Obs)
-job2.setShuffleCmp(shuffle2)
-job2.setSortCmp(sort2)
-print(job2.waitForCompletion())
+  #JOB_1 - Filter
+  inputDirectory1 = root_path + '/TP1_TP2/Dataset_Estrellas/'
+  outputDirectory1 = root_path + '/TP1_TP2/Output/Job1_Filter/'
+  #Job1 On
+  job1 = Job(inputDirectory1, outputDirectory1, map1Filter, reduce1)
+  dictionary = { 'tipoDeEstrellas': 0 } # 0 = Tipo de estrella ENANA.
+  job1.setParams(dictionary)
+  print(job1.waitForCompletion())
+
+  #JOB_2 - Join
+  inputDirectory2 = outputDirectory1
+  outputDirectory2 = root_path + '/TP1_TP2/Output/Job2_Join/'
+  #Job2 On
+  job2 = Job(inputDirectory2, outputDirectory2, map2_Est, reduce2)
+  job2.addInputPath(root_path + '/TP1_TP2/Dataset_Observaciones/', map2_Obs)
+  job2.setShuffleCmp(shuffle2)
+  job2.setSortCmp(sort2)
+  print(job2.waitForCompletion())
+
+if __name__ == "__main__":
+  main()
