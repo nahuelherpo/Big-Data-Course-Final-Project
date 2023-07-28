@@ -1,5 +1,15 @@
 # -*- coding: utf-8 -*-
-"""RESOLUTION OF QUERIES WITH PYSPARK
+"""
+
+@author: Nahuel Herpo
+
+@release: Nov 3, 2021
+
+
+----
+
+
+RESOLUTION OF QUERIES WITH PYSPARK
 
 Stage 2 of the final project of the Big Data course of
 the National University of La Plata. The stage 2 consists

@@ -1,5 +1,15 @@
 # -*- coding: utf-8 -*-
-"""RESOLUTION OF QUERIES WITH HADOOP
+"""
+
+@author: Nahuel Herpo
+
+@release: Sep 21, 2021
+
+
+----
+
+
+RESOLUTION OF QUERIES WITH HADOOP
 
 Stage 1 of the final project of the Big Data course of the
 National  University  of La Plata. The stage 1 consists of
