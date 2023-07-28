@@ -33,6 +33,10 @@ sparkSession = SparkSession.builder.appName('test').getOrCreate()
 
 
 """# Query 1
+For query 1,  I first filter out all star tuples that are not of
+the  type  specified by parameter; then I perform a join between
+stars and observations; finally I determine the average distance
+for each star with an aggregate by key.
 
 Attached functions
 """
@@ -109,7 +113,8 @@ def calcDistInPC(min_mag, max_mag, abs_mag):
 
 estrellas = sc.textFile(ROOT_PATH + 'Estrellas/') \
   .map(lambda t: t.split('\t')) \
-  .map(lambda t: (int(t[0]), typeNumber(t[2]))).filter(lambda t: t[1] == 0) \
+  .map(lambda t: (int(t[0]), typeNumber(t[2]))) \
+  .filter(lambda t: t[1] == 0) \
   .partitionBy(7, lambda x: x % 7)
 
 observacionesConTipo = sc.textFile(ROOT_PATH + 'Observaciones/') \
@@ -126,6 +131,11 @@ observacionesConTipo.saveAsTextFile(ROOT_PATH + 'output/query1')
 
 
 """# Query 2
+For query 2  I perform a join between stars and observations;
+then  I count  the  number of types observed by each observer
+with a reduce by key; Finally, I determine the maximum number
+of observed types and use it to filter all the observers that
+are below the maximum value.
 
 Attached functions
 """
@@ -214,7 +224,7 @@ max_observers = observacionesConTipo \
   .map(lambda t: (t[1][1], (t[1][0], activeBit(t[1][2], t[1][3])))) \
   .reduceByKey(mergeBits) \
   .map(lambda t: (t[1][0], t[0], countBits(t[1][1]))) \
-  .persist()
+  .persist() # for better performance
 
 max = max_observers.aggregate(
       (-1),
